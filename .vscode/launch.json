@@ -30,6 +30,12 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
-        }
+        },
+        {
+            "name": "Launch main",
+            "request": "launch",
+            "type": "dart",
+            "program": "needy_frontend/lib/main.dart",
+          },
     ]
 }
