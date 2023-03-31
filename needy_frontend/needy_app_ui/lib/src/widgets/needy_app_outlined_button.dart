@@ -1,28 +1,26 @@
-import 'package:needy_app_ui/needy_app_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:needy_app_ui/needy_app_ui.dart';
 
 class NAOutlinedButton extends StatelessWidget {
   const NAOutlinedButton({
     super.key,
     this.backgroundColor,
-    this.darkBackgroundColor,
     required this.text,
     this.textColor,
     this.onPressed,
     this.borderColor,
     this.icon,
   });
-  
+
   /// Primary button which background color is the primary color of the theme
   const NAOutlinedButton.primary({
     super.key,
     required this.text,
     this.onPressed,
     this.icon,
-  })  : backgroundColor = NAColors.lightBlue200,
-        darkBackgroundColor = NAColors.blue,
-        borderColor = NAColors.white,
-        textColor = NAColors.black;
+  })  : backgroundColor = NAColors.blue,
+        borderColor = NAColors.oceanBlue,
+        textColor = NAColors.white;
 
   /// Secondary button which background color is the secondary color of the theme
   const NAOutlinedButton.secondary({
@@ -31,7 +29,6 @@ class NAOutlinedButton extends StatelessWidget {
     this.onPressed,
     this.icon,
   })  : backgroundColor = NAColors.grey,
-        darkBackgroundColor = NAColors.grey,
         borderColor = NAColors.white,
         textColor = NAColors.white;
 
@@ -43,9 +40,6 @@ class NAOutlinedButton extends StatelessWidget {
 
   /// Background color of the button
   final Color? backgroundColor;
-
-  /// Background color of the button in dark mode
-  final Color? darkBackgroundColor;
 
   /// Text color of the button
   final Color? textColor;

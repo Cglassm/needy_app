@@ -1,9 +1,9 @@
-import 'package:needy_app_ui/needy_app_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:needy_app_ui/needy_app_ui.dart';
 
 /// {@template app_app_bar}
 /// A custom app bar widget.
-class NAAppBar extends StatelessWidget {
+class NAAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// {@macro app_app_bar}
   const NAAppBar({
     super.key,
@@ -100,11 +100,9 @@ class NAAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: widgetTitle,
-      titleTextStyle:
-          titleTextStyle ?? Theme.of(context).appBarTheme.titleTextStyle,
+      titleTextStyle: titleTextStyle ?? NATextStyle.display2,
       leading: leading,
-      backgroundColor:
-          backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
+      backgroundColor: backgroundColor,
       elevation: elevation,
       centerTitle: centerTitle,
       toolbarHeight: toolbarHeight,
@@ -113,4 +111,7 @@ class NAAppBar extends StatelessWidget {
       automaticallyImplyLeading: automaticallyImplyLeading ?? true,
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
 }

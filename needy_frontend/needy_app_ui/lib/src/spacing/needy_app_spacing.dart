@@ -1,5 +1,4 @@
 abstract class NASpacing {
-  
   /// The default unit of spacing
   static const double spaceUnit = 16;
 
@@ -32,8 +31,19 @@ abstract class NASpacing {
 
   /// xxxlg spacing value (88pt)
   static const double xxxxlg = 5.5 * spaceUnit;
-  
+
   /// s10
   static const double s10 = 10;
-  
+
+  /// s20
+  static const double s20 = 1.25 * spaceUnit;
+
+  /// s30
+  static const double s30 = 1.875 * spaceUnit;
+
+  /// s40
+  static const double s40 = 2.5 * spaceUnit;
+
+  /// s50
+  static const double s50 = 3.125 * spaceUnit;
 }

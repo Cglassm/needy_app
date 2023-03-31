@@ -8,16 +8,16 @@ class LoginPage extends StatelessWidget {
   static Route<void> route() {
     return MaterialPageRoute(
       builder: (ctx) {
-        return BlocProvider(
-          create: (_) => LoginBloc(),
-          child: const LoginView(),
-        );
+        return const LoginPage();
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return const LoginView();
+    return BlocProvider(
+      create: (_) => LoginBloc(),
+      child: const LoginView(),
+    );
   }
 }
