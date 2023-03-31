@@ -18,11 +18,11 @@ class LoginView extends StatelessWidget {
         home: Scaffold(
           backgroundColor: NAColors.white,
           appBar: AppBar(
-            backgroundColor: NAColors.white,
             elevation: 0,
+            backgroundColor: NAColors.oceanBlue,
             title: Text(
               "Needy App",
-              style: NATextStyle.headline3.copyWith(color: NAColors.oceanBlue),
+              style: NATextStyle.headline3.copyWith(color: NAColors.white),
             ),
           ),
           body: Column(
