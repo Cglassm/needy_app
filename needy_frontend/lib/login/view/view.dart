@@ -1,2 +1,2 @@
-export 'login_route.dart';
+export 'login_page.dart';
 export 'login_view.dart';
