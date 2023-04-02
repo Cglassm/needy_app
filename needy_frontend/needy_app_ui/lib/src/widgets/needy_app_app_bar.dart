@@ -102,7 +102,7 @@ class NAAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: widgetTitle,
       titleTextStyle: titleTextStyle ?? NATextStyle.display2,
       leading: leading,
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? NAColors.oceanBlue,
       elevation: elevation,
       centerTitle: centerTitle,
       toolbarHeight: toolbarHeight,
@@ -113,5 +113,5 @@ class NAAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

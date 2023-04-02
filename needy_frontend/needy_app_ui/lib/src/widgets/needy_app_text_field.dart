@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:needy_app_ui/needy_app_ui.dart';
 
 class NATextField extends StatelessWidget {
-
-    const NATextField({
+  const NATextField({
     super.key,
     this.initialValue,
     this.autoFillHints,
@@ -25,7 +24,7 @@ class NATextField extends StatelessWidget {
 
   /// A text field component based on material [TextFormField] widget which
   /// extends TextField with email icon and validates input type.
-   const NATextField.emailTextField({
+  const NATextField.emailTextField({
     super.key,
     this.initialValue,
     this.controller,
@@ -52,9 +51,9 @@ class NATextField extends StatelessWidget {
         ),
         autocorrect = false;
 
-    /// A password text field component based on material [TextFormField] widget which
-    /// extends TextField which obscures the text
-   const NATextField.passwordTextField({
+  /// A password text field component based on material [TextFormField] widget which
+  /// extends TextField which obscures the text
+  const NATextField.passwordTextField({
     super.key,
     this.initialValue,
     this.controller,
@@ -68,12 +67,11 @@ class NATextField extends StatelessWidget {
     this.keyboardType,
     this.autoFillHints,
     this.prefix,
+    this.obscureText = true,
   })  : hintText = 'Password',
-        obscureText = true,
         autocorrect = false;
 
-
- /// A value to initialize the field to.
+  /// A value to initialize the field to.
   final String? initialValue;
 
   /// List of auto fill hints.
@@ -132,6 +130,7 @@ class NATextField extends StatelessWidget {
       child: TextFormField(
         key: key,
         initialValue: initialValue,
+        showCursor: true,
         controller: controller,
         inputFormatters: inputFormatters,
         keyboardType: keyboardType,

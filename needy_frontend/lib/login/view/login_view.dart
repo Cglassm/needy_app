@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:needy_app_ui/needy_app_ui.dart';
 import 'package:needy_frontend/login/login.dart';
+import 'package:needy_frontend/sign_up/sign_up.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -17,10 +18,10 @@ class LoginView extends StatelessWidget {
       child: MaterialApp(
         home: Scaffold(
           backgroundColor: NAColors.white,
-          appBar: AppBar(
+          appBar: NAAppBar(
             elevation: 0,
             backgroundColor: NAColors.oceanBlue,
-            title: Text(
+            widgetTitle: Text(
               "Needy App",
               style: NATextStyle.headline3.copyWith(color: NAColors.white),
             ),
@@ -36,13 +37,26 @@ class LoginView extends StatelessWidget {
                       const SizedBox(height: NASpacing.xxxlg),
                       const NATextField.emailTextField(),
                       const SizedBox(height: NASpacing.s20),
-                      const NATextField.passwordTextField(),
-                      const SizedBox(height: NASpacing.s30),
-                      NAOutlinedButton.primary(
-                        text: "Forgot Password?",
-                        onPressed: () {},
+                      const PasswordInput(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton(
+                            onPressed: () {},
+                            child: const Text("Forgot password?")),
                       ),
-                      const SizedBox(height: NASpacing.s50),
+                      NAOutlinedButton.primary(
+                        text: "Log In",
+                        onPressed: () {
+                          print("boton");
+                        },
+                      ),
+                      const SizedBox(height: NASpacing.s20),
+                      NAOutlinedButton.primary(
+                        text: "Sign Up",
+                        onPressed: () {
+                          Navigator.of(context).push(SignUpPage.route());
+                        },
+                      ),
                     ],
                   ),
                 ),
