@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\2-Logic\needy_logic\needy_logic.csproj" />
+    <ProjectReference Include="..\..\2-Logic\needy_logic_abstraction\needy_logic_abstraction.csproj" />
+    <ProjectReference Include="..\..\2-Logic\needy_logic_dependency_injection\needy_logic_dependency_injection.csproj" />
+  </ItemGroup>
+
 </Project>

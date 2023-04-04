@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-    <PackageReference Include="Npgsql" Version="7.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\2-Logic\needy_logic_abstraction\needy_logic_abstraction.csproj" />
-    <ProjectReference Include="..\..\Common\needy_dto\needy_dto.csproj" />
+    <ProjectReference Include="..\needy_logic\needy_logic.csproj" />
+    <ProjectReference Include="..\needy_logic_abstraction\needy_logic_abstraction.csproj" />
   </ItemGroup>
 
 </Project>

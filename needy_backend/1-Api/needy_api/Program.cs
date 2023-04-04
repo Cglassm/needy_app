@@ -1,3 +1,6 @@
+using needy_logic_dependency_injection;
+using needy_dataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRepository();
+builder.Services.AddLogic();
 
 var app = builder.Build();
 
