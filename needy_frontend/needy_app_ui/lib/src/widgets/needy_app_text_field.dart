@@ -20,6 +20,8 @@ class NATextField extends StatelessWidget {
     this.onSubmitted,
     this.onTap,
     this.obscureText,
+    this.options,
+    this.dropDownCallBack,
   });
 
   /// A text field component based on material [TextFormField] widget which
@@ -49,7 +51,9 @@ class NATextField extends StatelessWidget {
             color: NAColors.grey,
           ),
         ),
-        autocorrect = false;
+        autocorrect = false,
+        dropDownCallBack = null,
+        options = null;
 
   /// A password text field component based on material [TextFormField] widget which
   /// extends TextField which obscures the text
@@ -69,59 +73,79 @@ class NATextField extends StatelessWidget {
     this.prefix,
     this.obscureText = true,
   })  : hintText = 'Password',
-        autocorrect = false;
+        autocorrect = false,
+        dropDownCallBack = null,
+        options = null;
 
-  /// A value to initialize the field to.
+  NATextField.gender({
+    required String selectedOption,
+    super.key,
+    this.onChanged,
+    this.errorText,
+    this.dropDownCallBack,
+    this.options = const [
+      'Male',
+      'Female',
+    ],
+  })  : obscureText = false,
+        initialValue = null,
+        autoFillHints = null,
+        controller = null,
+        inputFormatters = null,
+        hintText = null,
+        prefix = null,
+        onTap = null,
+        onSubmitted = null,
+        readOnly = false,
+        autocorrect = false,
+        suffix = DropdownButton<String>(
+          onChanged: dropDownCallBack,
+          dropdownColor: NAColors.grey,
+          value: selectedOption,
+          icon: const SizedBox(),
+          underline: const SizedBox(),
+          style: NATextStyle.bodyText1,
+          borderRadius: BorderRadius.circular(NASpacing.sm),
+          items: [
+            ...options!.map(
+              (e) => DropdownMenuItem<String>(
+                value: e,
+                child: Text(e),
+              ),
+            ),
+          ],
+        ),
+        keyboardType = TextInputType.number;
+
   final String? initialValue;
 
-  /// List of auto fill hints.
   final Iterable<String>? autoFillHints;
-
-  /// Controls the text being edited.
-  ///
-  /// If null, this widget will create its own [TextEditingController] and
-  /// initialize its [TextEditingController.text] with [initialValue].
   final TextEditingController? controller;
 
-  /// Optional input validation and formatting overrides.
   final List<TextInputFormatter>? inputFormatters;
 
-  /// Whether to enable autocorrect.
-  /// Defaults to true.
   final bool autocorrect;
-
-  /// Whether the text field should be read-only.
-  /// Defaults to false.
   final bool readOnly;
 
-  /// Text that suggests what sort of input the field accepts.
   final String? hintText;
 
-  /// Text that appears below the field.
   final String? errorText;
 
-  /// A widget that appears before the editable part of the text field.
   final Widget? prefix;
 
-  /// A widget that appears after the editable part of the text field.
   final Widget? suffix;
 
-  /// The type of keyboard to use for editing the text.
-  /// Defaults to [TextInputType.text] if maxLines is one and
-  /// [TextInputType.multiline] otherwise.
   final TextInputType? keyboardType;
 
-  /// Called when the user inserts or deletes texts in the text field.
   final ValueChanged<String>? onChanged;
 
-  /// {@macro flutter.widgets.editableText.onSubmitted}
   final ValueChanged<String>? onSubmitted;
 
-  /// Called when the text field has been tapped.
   final VoidCallback? onTap;
-
-  /// Whether the text field should obscure the text being edited.
   final bool? obscureText;
+
+  final List<String>? options;
+  final void Function(String?)? dropDownCallBack;
 
   @override
   Widget build(BuildContext context) {
