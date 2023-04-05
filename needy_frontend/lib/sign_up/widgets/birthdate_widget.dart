@@ -30,7 +30,6 @@ class BirthDateWidget extends StatelessWidget {
           },
           child: Container(
             height: NASpacing.s50,
-            width: MediaQuery.of(context).size.width * 0.4,
             padding: const EdgeInsets.symmetric(
                 horizontal: NASpacing.sm, vertical: NASpacing.sm),
             decoration: BoxDecoration(

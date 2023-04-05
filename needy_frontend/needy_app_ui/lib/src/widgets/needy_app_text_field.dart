@@ -115,7 +115,7 @@ class NATextField extends StatelessWidget {
             ),
           ],
         ),
-        keyboardType = TextInputType.number;
+        keyboardType = null;
 
   final String? initialValue;
 
