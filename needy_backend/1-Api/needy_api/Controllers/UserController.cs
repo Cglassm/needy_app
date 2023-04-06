@@ -10,15 +10,15 @@ namespace needy_api.Controllers
     {
         #region Properties and Fields
 
-        private readonly IAuthorizationLogic _authorizationLogic;
+        private readonly IUserLogic _userLogic;
 
         #endregion
 
         #region Builders
 
-        public UserController(IAuthorizationLogic authorizationLogic)
+        public UserController(IUserLogic userLogic)
         {
-            _authorizationLogic = authorizationLogic;
+            _userLogic = userLogic;
         }
 
         #endregion
@@ -28,7 +28,7 @@ namespace needy_api.Controllers
         [HttpGet("get-users")]
         public async Task<IActionResult> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            return Ok(await _userLogic.GetUsersAsync());
         }
 
         [HttpGet("get-user-by-id")]

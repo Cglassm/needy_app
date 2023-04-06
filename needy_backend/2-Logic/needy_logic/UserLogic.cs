@@ -23,13 +23,12 @@ namespace needy_logic
         #endregion
 
         #region Implements IAuthorizationLogic
-
-        public async Task<User> GetUserByIdAsync(int userId)
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetUsersAsync();
         }
 
-        public async Task<User> GetUsersAsync()
+        public async Task<User> GetUserByIdAsync(int userId)
         {
             throw new NotImplementedException();
         }

@@ -9,6 +9,7 @@ namespace needy_logic_dependency_injection
         public static IServiceCollection AddLogic(this IServiceCollection services)
         {
             return services
+            .AddScoped<IUserLogic, UserLogic>()
             .AddScoped<IAuthorizationLogic, AuthorizationLogic>();
             //.AddSingleton<IUserContextService, UserContextService>();
         }

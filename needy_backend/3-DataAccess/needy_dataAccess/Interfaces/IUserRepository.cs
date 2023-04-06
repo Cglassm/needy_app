@@ -10,7 +10,7 @@ namespace needy_dataAccess.Interfaces
 {
     public interface IUserRepository
     {
-        Task<User> GetUsersAsync();
+        Task<IEnumerable<User>> GetUsersAsync();
 
         Task<User> GetUserByIdAsync(int userId);
 

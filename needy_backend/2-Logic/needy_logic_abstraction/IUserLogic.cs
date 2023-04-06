@@ -10,7 +10,7 @@ namespace needy_logic_abstraction
 {
     public interface IUserLogic
     {
-        Task<User> GetUsersAsync();
+        Task<IEnumerable<User>> GetUsersAsync();
 
         Task<User> GetUserByIdAsync(int userId);
 

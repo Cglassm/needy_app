@@ -8,15 +8,15 @@ namespace needy_dataAccess.Implementation
     {
         #region Properties and Fields
 
-        
+        private readonly PostgreSQLConnection _dbConnection;
 
         #endregion
 
         #region Builders
 
-        public AuthorizationRepository()
+        public AuthorizationRepository(PostgreSQLConnection dbConnection)
         {
-            
+            _dbConnection = dbConnection;
         }
 
         #endregion
