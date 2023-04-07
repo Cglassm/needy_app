@@ -38,9 +38,16 @@ namespace needy_api.Controllers
         }
 
         [HttpPost("insert-user")]
-        public async Task<User> InsertUserAsync(InsertUserParameters parameters)
+        public async Task<IActionResult> InsertUserAsync(InsertUserParameters parameters)
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var result = await _userLogic.InsertUserAsync(parameters);
+            
+            return result ? Ok(result) : BadRequest();
         }
 
 

@@ -14,6 +14,6 @@ namespace needy_logic_abstraction
 
         Task<User> GetUserByIdAsync(int userId);
 
-        Task<User> InsertUserAsync(InsertUserParameters parameters);
+        Task<bool> InsertUserAsync(InsertUserParameters parameters);
     }
 }

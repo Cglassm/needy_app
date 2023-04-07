@@ -22,7 +22,8 @@ namespace needy_logic
 
         #endregion
 
-        #region Implements IAuthorizationLogic
+        #region Implements IUserLogic
+
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
             return await _userRepository.GetUsersAsync();
@@ -30,12 +31,12 @@ namespace needy_logic
 
         public async Task<User> GetUserByIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetUserByIdAsync(userId);
         }
 
-        public async Task<User> InsertUserAsync(InsertUserParameters parameters)
+        public async Task<bool> InsertUserAsync(InsertUserParameters parameters)
         {
-            throw new NotImplementedException();
+            return await _userRepository.InsertUserAsync(parameters);
         }
 
         #endregion

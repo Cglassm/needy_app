@@ -29,7 +29,8 @@ namespace needy_dataAccess.Repositories
             using var connection = _dbConnection.CreateConnection();
 
             var query = @"
-                            SELECT ""Id"", ""FirstName"", ""LastName"", ""Address"", ""Phone"", ""Gender""
+                            SELECT ""Id"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                                   ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password""
                             FROM public.""Users""";
 
             return await connection.QueryAsync<User>(query, new {});
@@ -37,12 +38,41 @@ namespace needy_dataAccess.Repositories
 
         public async Task<User> GetUserByIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            using var connection = _dbConnection.CreateConnection();
+
+            var query = @"
+                            SELECT ""Id"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                                   ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password""
+                            FROM public.""Users""
+                            WHERE ""Id"" = @Id";
+
+            return await connection.QueryFirstOrDefaultAsync<User>(query, new { Id = userId});
         }
 
-        public async Task<User> InsertUserAsync(InsertUserParameters parameters)
+        public async Task<bool> InsertUserAsync(InsertUserParameters parameters)
         {
-            throw new NotImplementedException();
+            using var connection = _dbConnection.CreateConnection();
+
+            var query = @"
+                            INSERT INTO public.""Users"" (""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                                                        ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password"")
+                            VALUES (@FirstName, @LastName, @Address, @City, @Country, @Phone, @Gender, @BirthDate, @Email, @Password)";
+
+            var result = await connection.ExecuteAsync(query, new
+            {
+                parameters.FirstName,
+                parameters.LastName,
+                parameters.Address,
+                parameters.City,
+                parameters.Country,
+                parameters.Phone,
+                parameters.Gender,
+                parameters.BirthDate,
+                parameters.Email,
+                parameters.Password
+            });
+
+            return result > 0;
         }
 
         #endregion
