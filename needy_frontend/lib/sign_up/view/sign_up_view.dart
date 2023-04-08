@@ -31,9 +31,13 @@ class SignUpView extends StatelessWidget {
                 separator,
                 const PhoneTextfield(),
                 separator,
+                const InstagramAccountTextfield(),
+                separator,
                 const AddressTextfield(),
                 separator,
                 const _GenderBirthTextfields(),
+                separator,
+                const StateCountryCityDropDown(),
                 const SizedBox(height: NASpacing.xlg),
                 NAOutlinedButton.primary(
                   onPressed: () {},

@@ -163,13 +163,13 @@ class NATextField extends StatelessWidget {
         readOnly: readOnly,
         autofillHints: autoFillHints,
         cursorColor: Theme.of(context).colorScheme.onBackground,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              fontWeight: FontWeight.w500,
-            ),
+        style: NATextStyle.bodyText1.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
         onFieldSubmitted: onSubmitted,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.labelLarge,
+          hintStyle: NATextStyle.bodyText1,
           errorText: errorText,
           prefixIcon: prefix,
           suffixIcon: suffix,

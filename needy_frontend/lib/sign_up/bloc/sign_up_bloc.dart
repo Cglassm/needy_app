@@ -16,6 +16,10 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpPhoneChanged>(_onSignUpPhoneChanged);
     on<SignUpBirthDateChanged>(_onSignUpBirthDateChanged);
     on<SignUpGenderChanged>(_onSignUpGenderChanged);
+    on<SignUpIgAccountChanged>(_onSignUpIgAccountChanged);
+    on<SignUpCountryChanged>(_onSignUpCountryChanged);
+    on<SignUpCityChanged>(_onSignUpCityChanged);
+    on<SignUpStateChanged>(_onSignUpStateChanged);
   }
 
   Future<void> _onSignUpNameChanged(
@@ -60,5 +64,25 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   Future<void> _onSignUpGenderChanged(
       SignUpGenderChanged event, Emitter<SignUpState> emit) async {
     emit(state.copyWith(gender: event.gender));
+  }
+
+  Future<void> _onSignUpIgAccountChanged(
+      SignUpIgAccountChanged event, Emitter<SignUpState> emit) async {
+    emit(state.copyWith(igAccount: event.igAccount));
+  }
+
+  Future<void> _onSignUpCountryChanged(
+      SignUpCountryChanged event, Emitter<SignUpState> emit) async {
+    emit(state.copyWith(country: event.country));
+  }
+
+  Future<void> _onSignUpCityChanged(
+      SignUpCityChanged event, Emitter<SignUpState> emit) async {
+    emit(state.copyWith(city: event.city));
+  }
+
+  Future<void> _onSignUpStateChanged(
+      SignUpStateChanged event, Emitter<SignUpState> emit) async {
+    emit(state.copyWith(state: event.state));
   }
 }

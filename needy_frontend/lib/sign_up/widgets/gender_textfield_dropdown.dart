@@ -19,7 +19,7 @@ class GenderTextFieldDropDown extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Gender"),
+        Text("Gender", style: NATextStyle.bodyText1),
         DropdownButton(
           hint: const Text('Selecciona un género'),
           value: selectedGender,

@@ -16,7 +16,7 @@ class DateOfBirthTextField extends StatelessWidget {
       children: [
         Text(
           "Date of Birth",
-          style: NATextStyle.bodyText2,
+          style: NATextStyle.bodyText1,
         ),
         const SizedBox(height: NASpacing.s10),
         BirthDateWidget(
