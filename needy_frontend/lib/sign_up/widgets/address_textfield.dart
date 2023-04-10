@@ -11,7 +11,7 @@ class AddressTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NATextField(
-      hintText: "Address",
+      hintText: "Dirección",
       onChanged: (address) {
         context.read<SignUpBloc>().add(
               SignUpAddressChanged(

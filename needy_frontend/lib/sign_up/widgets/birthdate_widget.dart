@@ -46,7 +46,7 @@ class BirthDateWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(NASpacing.md),
             child: Text(
-              "Please select a date of birth",
+              "Selecciona fecha de nacimiento",
               style: NATextStyle.subtitle1.copyWith(color: NAColors.red),
             ),
           )

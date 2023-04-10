@@ -20,9 +20,7 @@ class SignUpState extends Equatable {
     required this.igAccount,
     required this.id,
     required this.birthDate,
-    required this.country,
-    required this.city,
-    required this.state,
+    required this.zone,
   });
 
   SignUpState.initial()
@@ -38,9 +36,7 @@ class SignUpState extends Equatable {
           igAccount: '',
           id: '',
           birthDate: DateTime.now(),
-          country: '',
-          city: '',
-          state: '',
+          zone: 'Lavalleja',
         );
 
   final SignUpStatus status;
@@ -54,9 +50,7 @@ class SignUpState extends Equatable {
   final String igAccount;
   final String id;
   final DateTime birthDate;
-  final String country;
-  final String city;
-  final String state;
+  final String zone;
 
   SignUpState copyWith({
     SignUpStatus? status,
@@ -70,9 +64,7 @@ class SignUpState extends Equatable {
     String? igAccount,
     String? id,
     DateTime? birthDate,
-    String? country,
-    String? city,
-    String? state,
+    String? zone,
   }) {
     return SignUpState(
       status: status ?? this.status,
@@ -86,9 +78,7 @@ class SignUpState extends Equatable {
       igAccount: igAccount ?? this.igAccount,
       id: id ?? this.id,
       birthDate: birthDate ?? this.birthDate,
-      country: country ?? this.country,
-      city: city ?? this.city,
-      state: state ?? this.state,
+      zone: zone ?? this.zone,
     );
   }
 
@@ -105,8 +95,6 @@ class SignUpState extends Equatable {
         igAccount,
         id,
         birthDate,
-        country,
-        city,
-        state,
+        zone,
       ];
 }

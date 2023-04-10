@@ -85,29 +85,11 @@ class SignUpIgAccountChanged extends SignUpEvent {
   List<Object?> get props => [igAccount];
 }
 
-class SignUpCountryChanged extends SignUpEvent {
-  const SignUpCountryChanged({required this.country});
+class SignUpZoneChanged extends SignUpEvent {
+  const SignUpZoneChanged({required this.zone});
 
-  final String country;
-
-  @override
-  List<Object?> get props => [country];
-}
-
-class SignUpCityChanged extends SignUpEvent {
-  const SignUpCityChanged({required this.city});
-
-  final String city;
+  final String zone;
 
   @override
-  List<Object?> get props => [city];
-}
-
-class SignUpStateChanged extends SignUpEvent {
-  const SignUpStateChanged({required this.state});
-
-  final String state;
-
-  @override
-  List<Object?> get props => [state];
+  List<Object?> get props => [zone];
 }
