@@ -11,7 +11,7 @@ class InstagramAccountTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NATextField(
-      hintText: "Instagram Account",
+      hintText: "Cuenta de instagram",
       onChanged: (instagram) {
         context.read<SignUpBloc>().add(
               SignUpIgAccountChanged(

@@ -11,7 +11,7 @@ class PasswordTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NATextField(
-      hintText: "Password",
+      hintText: "Contraseña",
       onChanged: (password) {
         context.read<SignUpBloc>().add(
               SignUpPasswordChanged(

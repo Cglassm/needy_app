@@ -15,10 +15,10 @@ class DateOfBirthTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Date of Birth",
+          "Fecha de nacimiento",
           style: NATextStyle.bodyText1,
         ),
-        const SizedBox(height: NASpacing.s10),
+        const SizedBox(height: NASpacing.lg),
         BirthDateWidget(
           initialDate: state.birthDate,
           formattedBirthdate: DateHelper.getFormattedBirthDate(

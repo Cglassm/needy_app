@@ -8,7 +8,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const separator = SizedBox(height: NASpacing.s10);
+    const separator = SizedBox(height: NASpacing.s20);
 
     return BlocListener<SignUpBloc, SignUpState>(
       listenWhen: (previous, current) => previous.status != current.status,
@@ -21,7 +21,7 @@ class SignUpView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: NASpacing.s20),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: NASpacing.xlg),
                 const _NameTextFields(),
@@ -35,13 +35,18 @@ class SignUpView extends StatelessWidget {
                 separator,
                 const AddressTextfield(),
                 separator,
-                const _GenderBirthTextfields(),
+                const DateOfBirthTextField(),
                 separator,
-                const StateCountryCityDropDown(),
+                GenderTextFieldDropDown(),
+                separator,
+                ZoneTextFieldDropDown(),
                 const SizedBox(height: NASpacing.xlg),
-                NAOutlinedButton.primary(
-                  onPressed: () {},
-                  text: "Sign up",
+                Align(
+                  alignment: Alignment.center,
+                  child: NAOutlinedButton.primary(
+                    onPressed: () {},
+                    text: "Registrarse",
+                  ),
                 ),
                 const SizedBox(height: NASpacing.s50),
               ],
@@ -49,21 +54,6 @@ class SignUpView extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _GenderBirthTextfields extends StatelessWidget {
-  const _GenderBirthTextfields();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const DateOfBirthTextField(),
-        GenderTextFieldDropDown(),
-      ],
     );
   }
 }
@@ -77,7 +67,7 @@ class _NameTextFields extends StatelessWidget {
       children: [
         Expanded(
           child: NATextField(
-            hintText: "Name",
+            hintText: "Nombre",
             onChanged: (name) {
               context.read<SignUpBloc>().add(
                     SignUpNameChanged(
@@ -92,7 +82,7 @@ class _NameTextFields extends StatelessWidget {
         // Last Name TextField
         Expanded(
           child: NATextField(
-            hintText: "Last Name",
+            hintText: "Apellido",
             onChanged: (lastName) {
               context.read<SignUpBloc>().add(
                     SignUpLastNameChanged(

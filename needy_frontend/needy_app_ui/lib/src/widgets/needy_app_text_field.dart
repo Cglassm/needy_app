@@ -72,7 +72,7 @@ class NATextField extends StatelessWidget {
     this.autoFillHints,
     this.prefix,
     this.obscureText = true,
-  })  : hintText = 'Password',
+  })  : hintText = 'Contraseña',
         autocorrect = false,
         dropDownCallBack = null,
         options = null;

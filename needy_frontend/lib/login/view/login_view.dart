@@ -42,17 +42,17 @@ class LoginView extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: TextButton(
                             onPressed: () {},
-                            child: const Text("Forgot password?")),
+                            child: const Text("Olvidaste tu contraseña?")),
                       ),
                       NAOutlinedButton.primary(
-                        text: "Log In",
+                        text: "Ingresar",
                         onPressed: () {
                           print("boton");
                         },
                       ),
                       const SizedBox(height: NASpacing.s20),
                       NAOutlinedButton.primary(
-                        text: "Sign Up",
+                        text: "Registrarse",
                         onPressed: () {
                           Navigator.of(context).push(SignUpPage.route());
                         },
