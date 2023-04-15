@@ -5,6 +5,7 @@ enum SignUpStatus {
   loading,
   loaded,
   error,
+  success,
 }
 
 class SignUpState extends Equatable {

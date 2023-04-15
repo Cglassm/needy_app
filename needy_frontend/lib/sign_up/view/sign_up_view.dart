@@ -14,7 +14,12 @@ class SignUpView extends StatelessWidget {
     return BlocListener<SignUpBloc, SignUpState>(
       listenWhen: (previous, current) => previous.status != current.status,
       listener: (context, state) {
-        // TODO: implement listener
+        if (state.status == SignUpStatus.success) {
+          Navigator.of(context).pushAndRemoveUntil(
+            HomePage.route(),
+            (route) => false,
+          );
+        }
       },
       child: Scaffold(
         appBar: const NAAppBar(),
@@ -26,6 +31,7 @@ class SignUpView extends StatelessWidget {
               children: [
                 const SizedBox(height: NASpacing.xlg),
                 const _NameTextFields(),
+                const CITextfield(),
                 const EmailTextField(),
                 separator,
                 const PasswordTextfield(),
