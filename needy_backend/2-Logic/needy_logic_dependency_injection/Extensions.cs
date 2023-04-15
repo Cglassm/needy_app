@@ -10,7 +10,8 @@ namespace needy_logic_dependency_injection
         {
             return services
             .AddScoped<IUserLogic, UserLogic>()
-            .AddScoped<IAuthorizationLogic, AuthorizationLogic>();
+            .AddScoped<IAuthorizationLogic, AuthorizationLogic>()
+            .AddScoped<IRaitingLogic, RaitingLogic>();
             //.AddSingleton<IUserContextService, UserContextService>();
         }
     }

@@ -12,7 +12,8 @@ namespace needy_dataAccess
             return services
             .AddSingleton<PostgreSQLConnection>()
             .AddScoped<IUserRepository, UserRepository>()
-            .AddScoped<IAuthorizationRepository, AuthorizationRepository>();
+            .AddScoped<IAuthorizationRepository, AuthorizationRepository>()
+            .AddScoped<IRaitingRepository, RaitingRepository>();
         }
     }
 }
