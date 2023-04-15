@@ -31,14 +31,14 @@ namespace needy_api.Controllers
             return Ok(await _userLogic.GetUsersAsync());
         }
 
-        [HttpGet("get-user-by-id")]
-        public async Task<IActionResult> GetUserByIdAsync(int userId)
+        [HttpGet("get-user-by-ci")]
+        public async Task<IActionResult> GetUserByCIAsync(int userCI)
         {
-            throw new NotImplementedException();
+            return Ok(await _userLogic.GetUserByCIAsync(userCI));
         }
 
         [HttpPost("insert-user")]
-        public async Task<IActionResult> InsertUserAsync(InsertUserParameters parameters)
+        public async Task<IActionResult> InsertUserAsync([FromBody] InsertUserParameters parameters)
         {
             if (!ModelState.IsValid)
             {
@@ -49,7 +49,6 @@ namespace needy_api.Controllers
             
             return result ? Ok(result) : BadRequest();
         }
-
 
         #endregion
     }
