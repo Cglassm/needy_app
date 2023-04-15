@@ -28,8 +28,8 @@ class NAOutlinedButton extends StatelessWidget {
     required this.text,
     this.icon,
   })  : backgroundColor = NAColors.grey,
-        borderColor = NAColors.white,
         onPressed = null,
+        borderColor = NAColors.white,
         textColor = NAColors.white;
 
   const NAOutlinedButton.red({

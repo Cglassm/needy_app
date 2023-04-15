@@ -43,8 +43,8 @@ class PasswordInput extends StatelessWidget {
       errorText: isPasswordValid
           ? null
           : password.isEmpty
-              ? "Please enter a password"
-              : "Password should be greater than 6 digits",
+              ? "Ingrese su contraseña"
+              : "Contraseña no es válida",
       obscureText: obscurePasswordText,
     );
   }

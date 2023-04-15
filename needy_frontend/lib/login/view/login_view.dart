@@ -10,24 +10,37 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
-      listener: (context, state) {
-        if (state.status == LoginStatus.error) {
-          Navigator.of(context).pop();
-        }
-      },
-      child: MaterialApp(
-        home: Scaffold(
-          backgroundColor: NAColors.white,
-          appBar: NAAppBar(
-            elevation: 0,
-            backgroundColor: NAColors.oceanBlue,
-            widgetTitle: Text(
-              "Needy App",
-              style: NATextStyle.headline3.copyWith(color: NAColors.white),
-            ),
+    final status = context.select((LoginBloc bloc) => bloc.state.status);
+
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: NAColors.white,
+        appBar: NAAppBar(
+          elevation: 0,
+          backgroundColor: NAColors.oceanBlue,
+          widgetTitle: Text(
+            "Needy App",
+            style: NATextStyle.headline3.copyWith(color: NAColors.white),
           ),
-          body: Column(
+        ),
+        body: BlocListener<LoginBloc, LoginState>(
+          listener: (context, state) {
+            if (state.status == LoginStatus.error) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("Error al iniciar sesión"),
+                  duration: Duration(seconds: 2),
+                ),
+              );
+            }
+            if (state.status == LoginStatus.success) {
+              Navigator.of(context).pushAndRemoveUntil(
+                HomePage.route(),
+                (route) => false,
+              );
+            }
+          },
+          child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: NASpacing.s20),
@@ -36,7 +49,7 @@ class LoginView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(height: NASpacing.xxxlg),
-                      const NATextField.emailTextField(),
+                      const EmailInput(),
                       const SizedBox(height: NASpacing.s20),
                       const PasswordInput(),
                       Align(
@@ -45,12 +58,16 @@ class LoginView extends StatelessWidget {
                             onPressed: () {},
                             child: const Text("Olvidaste tu contraseña?")),
                       ),
-                      NAOutlinedButton.primary(
-                        text: "Ingresar",
-                        onPressed: () {
-                          Navigator.of(context).push(HomePage.route());
-                        },
-                      ),
+                      status == LoginStatus.loading
+                          ? const CircularProgressIndicator()
+                          : NAOutlinedButton.primary(
+                              text: "Ingresar",
+                              onPressed: () {
+                                context.read<LoginBloc>().add(
+                                      const LoginSubmitted(),
+                                    );
+                              },
+                            ),
                       const SizedBox(height: NASpacing.s20),
                       NAOutlinedButton.primary(
                         text: "Registrarse",
