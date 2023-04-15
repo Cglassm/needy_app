@@ -106,7 +106,7 @@ abstract class NATextStyle {
 
   /// Overline Text Style
   static final TextStyle overline = _baseTextStyle.copyWith(
-    fontSize: 12,
+    fontSize: 25,
     height: 1.33,
     letterSpacing: 0.5,
     color: defaultColor,

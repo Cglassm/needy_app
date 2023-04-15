@@ -26,10 +26,28 @@ class NAOutlinedButton extends StatelessWidget {
   const NAOutlinedButton.secondary({
     super.key,
     required this.text,
-    this.onPressed,
     this.icon,
   })  : backgroundColor = NAColors.grey,
         borderColor = NAColors.white,
+        onPressed = null,
+        textColor = NAColors.white;
+
+  const NAOutlinedButton.red({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.icon,
+  })  : backgroundColor = NAColors.red,
+        borderColor = NAColors.red,
+        textColor = NAColors.white;
+
+  const NAOutlinedButton.home({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.icon,
+  })  : backgroundColor = NAColors.darkAqua,
+        borderColor = null,
         textColor = NAColors.white;
 
   /// Text on the button
@@ -57,7 +75,6 @@ class NAOutlinedButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        shape: const StadiumBorder(),
         disabledBackgroundColor: theme.colorScheme.background,
         backgroundColor: backgroundColor,
         side: borderColor == null

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:needy_app_ui/needy_app_ui.dart';
+import 'package:needy_frontend/home/home.dart';
 import 'package:needy_frontend/sign_up/sign_up.dart';
 
 class SignUpView extends StatelessWidget {
@@ -44,7 +45,9 @@ class SignUpView extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: NAOutlinedButton.primary(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(HomePage.route());
+                    },
                     text: "Registrarse",
                   ),
                 ),
