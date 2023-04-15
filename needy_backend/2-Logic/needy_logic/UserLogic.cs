@@ -29,9 +29,9 @@ namespace needy_logic
             return await _userRepository.GetUsersAsync();
         }
 
-        public async Task<User> GetUserByIdAsync(int userId)
+        public async Task<User> GetUserByCIAsync(int userCI)
         {
-            return await _userRepository.GetUserByIdAsync(userId);
+            return await _userRepository.GetUserByCIAsync(userCI);
         }
 
         public async Task<bool> InsertUserAsync(InsertUserParameters parameters)

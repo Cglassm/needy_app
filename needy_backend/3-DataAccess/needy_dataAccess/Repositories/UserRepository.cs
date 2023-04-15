@@ -29,24 +29,24 @@ namespace needy_dataAccess.Repositories
             using var connection = _dbConnection.CreateConnection();
 
             var query = @"
-                            SELECT ""Id"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                            SELECT ""CI"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Zone"",
                                    ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password""
                             FROM public.""Users""";
 
             return await connection.QueryAsync<User>(query, new {});
         }
 
-        public async Task<User> GetUserByIdAsync(int userId)
+        public async Task<User> GetUserByCIAsync(int userCI)
         {
             using var connection = _dbConnection.CreateConnection();
 
             var query = @"
-                            SELECT ""Id"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                            SELECT ""CI"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Zone"",
                                    ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password""
                             FROM public.""Users""
-                            WHERE ""Id"" = @Id";
+                            WHERE ""CI"" = @CI";
 
-            return await connection.QueryFirstOrDefaultAsync<User>(query, new { Id = userId});
+            return await connection.QueryFirstOrDefaultAsync<User>(query, new { CI = userCI });
         }
 
         public async Task<bool> InsertUserAsync(InsertUserParameters parameters)
@@ -54,17 +54,17 @@ namespace needy_dataAccess.Repositories
             using var connection = _dbConnection.CreateConnection();
 
             var query = @"
-                            INSERT INTO public.""Users"" (""FirstName"", ""LastName"", ""Address"", ""City"", ""Country"",
+                            INSERT INTO public.""Users"" (""CI"", ""FirstName"", ""LastName"", ""Address"", ""City"", ""Zone"",
                                                         ""Phone"", ""Gender"", ""BirthDate"", ""Email"", ""Password"")
-                            VALUES (@FirstName, @LastName, @Address, @City, @Country, @Phone, @Gender, @BirthDate, @Email, @Password)";
+                            VALUES (@CI, @FirstName, @LastName, @Address, @City, @Zone, @Phone, @Gender, @BirthDate, @Email, @Password)";
 
             var result = await connection.ExecuteAsync(query, new
             {
+                parameters.CI,
                 parameters.FirstName,
                 parameters.LastName,
                 parameters.Address,
-                parameters.City,
-                parameters.Country,
+                parameters.Zone,
                 parameters.Phone,
                 parameters.Gender,
                 parameters.BirthDate,
