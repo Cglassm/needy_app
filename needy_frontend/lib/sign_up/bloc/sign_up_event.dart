@@ -93,3 +93,19 @@ class SignUpZoneChanged extends SignUpEvent {
   @override
   List<Object?> get props => [zone];
 }
+
+class SignUpSubmitted extends SignUpEvent {
+  const SignUpSubmitted();
+
+  @override
+  List<Object> get props => [];
+}
+
+class SignUpIdChanged extends SignUpEvent {
+  const SignUpIdChanged({required this.id});
+
+  final String id;
+
+  @override
+  List<Object> get props => [id];
+}

@@ -52,7 +52,9 @@ class SignUpView extends StatelessWidget {
                   alignment: Alignment.center,
                   child: NAOutlinedButton.primary(
                     onPressed: () {
-                      Navigator.of(context).push(HomePage.route());
+                      context.read<SignUpBloc>().add(
+                            const SignUpSubmitted(),
+                          );
                     },
                     text: "Registrarse",
                   ),

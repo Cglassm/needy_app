@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:needy_app_ui/needy_app_ui.dart';
+import 'package:needy_frontend/sign_up/sign_up.dart';
 
 class CITextfield extends StatelessWidget {
   const CITextfield({
@@ -11,7 +13,7 @@ class CITextfield extends StatelessWidget {
     return NATextField(
       hintText: "Documento (sin puntos ni guiones)",
       onChanged: (cedula) {
-        //TODO: Add event
+        context.read<SignUpBloc>().add(SignUpIdChanged(id: cedula));
       },
     );
   }
