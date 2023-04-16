@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 part 'sign_up_event.dart';
 part 'sign_up_state.dart';
@@ -80,6 +81,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
   Future<void> _onSignUpSubmitted(
       SignUpSubmitted event, Emitter<SignUpState> emit) async {
+    final date = state.birthDate;
+    final formattedDate = DateFormat('yyyy-MM-dd').format(date);
     try {
       final response = await http.post(
         Uri.parse('https://api/users/insert-user'),
@@ -94,7 +97,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           'zone': state.zone,
           'phone': state.phone,
           'gender': state.gender,
-          'birthDate': state.birthDate.toIso8601String(),
+          'birthDate': formattedDate,
           'email': state.email,
           'password': state.password,
         }),
@@ -110,7 +113,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       }
     } catch (e) {
       emit(state.copyWith(status: SignUpStatus.error));
-      throw Exception('Error al llamar a la API');
+      throw Exception(e.toString());
     }
   }
 
