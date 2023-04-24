@@ -42,10 +42,8 @@ class ZoneTextFieldDropDown extends StatelessWidget {
             height: 1,
             color: NAColors.grey,
           ),
-          onChanged: (gender) {
-            context
-                .read<SignUpBloc>()
-                .add(SignUpGenderChanged(gender: gender!));
+          onChanged: (zone) {
+            context.read<SignUpBloc>().add(SignUpZoneChanged(zone: zone!));
           },
           items: _zoneOptions.map((zone) {
             return DropdownMenuItem(

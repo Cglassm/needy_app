@@ -5,6 +5,7 @@ enum SignUpStatus {
   loading,
   loaded,
   error,
+  success,
 }
 
 class SignUpState extends Equatable {
@@ -34,7 +35,7 @@ class SignUpState extends Equatable {
           phone: '',
           gender: "Male",
           igAccount: '',
-          id: '',
+          id: 0,
           birthDate: DateTime.now(),
           zone: 'Lavalleja',
         );
@@ -48,7 +49,7 @@ class SignUpState extends Equatable {
   final String phone;
   final String gender;
   final String igAccount;
-  final String id;
+  final int id;
   final DateTime birthDate;
   final String zone;
 
@@ -62,7 +63,7 @@ class SignUpState extends Equatable {
     String? phone,
     String? gender,
     String? igAccount,
-    String? id,
+    int? id,
     DateTime? birthDate,
     String? zone,
   }) {

@@ -5,6 +5,7 @@ enum LoginStatus {
   loading,
   loaded,
   error,
+  success,
 }
 
 enum UserProfileStatus {
