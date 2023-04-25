@@ -268,4 +268,5 @@ __pycache__/
 # tools/
 
 #appsettings
+appsettings.Development.json
 appsettings.json
